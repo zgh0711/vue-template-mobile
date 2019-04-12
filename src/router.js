@@ -43,12 +43,12 @@ router.beforeEach((to, from, next) => {
     //保存当前路由地址，授权后还会跳到此地址
     sessionStorage.setItem('wxRedirectUrl', to.fullPath)
     //请求微信授权,并跳转到 /WxAuth 路由
-    let appId = 'wxe774fea948a63f5a'
-    let redirectUrl = encodeURIComponent('https://m1.youpenglai.com/dc/WxAuth')
+    let appId = '测试服AppId'
+    let redirectUrl = encodeURIComponent('https://m1.xxxxxx.com/WxAuth')
     //判断是否为正式环境
-    if (window.location.origin.indexOf('https://m.youpenglai.com') !== -1) {
-      appId = 'wx9cd56cb5e2c83a14'
-      redirectUrl = encodeURIComponent('https://m.youpenglai.com/dc/WxAuth')
+    if (window.location.origin.indexOf('https://m.xxxxxx.com') !== -1) {
+      appId = '正式服AppId'
+      redirectUrl = encodeURIComponent('https://m.xxxxxx.com/WxAuth')
     }
     window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
   } else {

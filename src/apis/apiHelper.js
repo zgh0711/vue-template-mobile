@@ -7,10 +7,10 @@ let vue = undefined
 let showToast = false
 let showLoading = false
 
-let BASE_URL = 'https://m1.youpenglai.com/dcapi/v1'
+let BASE_URL = 'https://m1.xxxxxx.com/api'
 //判断是否为正式环境
-if (window.location.origin.indexOf('https://m.youpenglai.com') !== -1) {
-  BASE_URL = 'https://m.youpenglai.com/dcapi/v1'
+if (window.location.origin.indexOf('https://m.xxxxxx.com') !== -1) {
+  BASE_URL = 'https://m.xxxxxx.com/api'
 }
 
 axios.defaults.timeout = 20000

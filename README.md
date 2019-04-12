@@ -12,7 +12,8 @@ axios，vant，weixin-js-sdk
 4. public 文件夹下 index.html 文件中的 title 内容根据不同项目改掉
 5. public 文件夹下 favicon.ico 文件，根据项目需要换掉，（显示在浏览器标签上的网站 logo）
 6. package.json 文件中 name 字段的值换掉
-7. 最后，记得修改项目根目录文件夹名字
+7. vue.config.js 文件中 publicPath 需要根据服务器目录做适当更改
+8. 最后，记得修改项目根目录文件夹名字
 
 
 以上内容改完，整个项目框架基本就成型了，就可以专注于业务开发了
