@@ -1,0 +1,132 @@
+html {
+  /* rem 适配计算方式，10 *100 / 750 */
+  font-size: 1.33333vw;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 指正常的未被访问过的链接*/
+a:link {
+  text-decoration: none;
+}
+
+/*指已经访问过的链接*/
+a:visited {
+  text-decoration: none;
+}
+
+/*指鼠标在链接*/
+a:hover {
+  text-decoration: none;
+}
+
+/* 指正在点的链接*/
+a:active {
+  text-decoration: none;
+}
+
+[type='password'], [type='text'], select, textarea, button {
+  border: none;
+}
+
+button {
+  padding: 0;
+}
+
+input, select {
+  border: none;
+  outline: none;
+  line-height: normal;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #A5A5A5;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #A5A5A5;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #A5A5A5;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #A5A5A5;
+}
+
+/*去除点击时的背景效果*/
+div, a, img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+p, h1, h2, h3 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-after: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.f2 {
+  flex: 2;
+}
+
+.f3 {
+  flex: 3;
+}
+
+.f4 {
+  flex: 4;
+}
+
+.f5 {
+  flex: 5;
+}
+
+.f6 {
+  flex: 6;
+}
+
+.f7 {
+  flex: 7;
+}
+
+.oneLine {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.twoLine {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /*要显示的行数*/
+  -webkit-box-orient: vertical;
+}
