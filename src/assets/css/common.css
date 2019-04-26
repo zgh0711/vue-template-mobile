@@ -1,11 +1,15 @@
 html {
   /* rem 适配计算方式，10 *100 / 750 */
-  font-size: 1.33333vw;
+  font-size: 13.3333vw;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
+  background: #ECECEC;
   -webkit-text-size-adjust: none
 }
 
@@ -80,6 +84,11 @@ p, h1, h2, h3 {
   -webkit-padding-after: 0;
 }
 
+/*避免 div 中 img 标签底部会多出一点的留白的问题*/
+img{
+  vertical-align:top;
+}
+
 .flex {
   display: flex;
 }
@@ -129,4 +138,11 @@ p, h1, h2, h3 {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2; /*要显示的行数*/
   -webkit-box-orient: vertical;
+}
+
+
+/*覆盖 vant 里面的默认样式*/
+.van-list__finished-text{
+  color: transparent;
+  line-height: 0;
 }

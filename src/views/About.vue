@@ -14,7 +14,7 @@
   export default {
     name: 'home',
     async mounted () {
-      await this.wxShare.share('about',location.href)
+      this.wxShare.share()
     },
     methods: {
       click () {

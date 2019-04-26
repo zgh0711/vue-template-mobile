@@ -39,8 +39,8 @@ axios.interceptors.response.use(response => {
     Toast.clear()
   }
   //一切正常，返回数据
-  if (response.data && response.data.success) {
-    return response.data.result
+  if (response.data) {
+    return response.data
   }
 }, error => {
   if (showLoading) {

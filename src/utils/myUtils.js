@@ -59,20 +59,20 @@ String.prototype.ossImg = function (type) {
   switch (type) {
     case 'banner':
       if (deviceDpr < 1.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_563,h_275/quality,Q_85'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_lfit,w_563/quality,Q_85'
       } else if (1.5 <= deviceDpr < 2.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_750,h_366/quality,Q_90'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_lfit,w_750/quality,Q_90'
       } else if (deviceDpr >= 2.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_750,h_366/quality,Q_95'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_lfit,w_750/quality,Q_95'
       }
       break
     case 'thumb':
       if (deviceDpr < 1.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_127,h_72/quality,q_80'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_163,h_105/quality,q_80'
       } else if (1.5 <= deviceDpr < 2.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_190,h_108/quality,q_85'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_244,h_158/quality,q_85'
       } else if (deviceDpr >= 2.5) {
-        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_254,h_144/quality,q_85'
+        url = url.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_325,h_210/quality,q_85'
       }
       break
     case 'thumb-md':
