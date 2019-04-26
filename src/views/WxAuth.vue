@@ -19,8 +19,9 @@
           code: this.$route.query.code,
           platform: 1,
         })
-        alert(JSON.stringify(res))
-        localStorage.setItem('wxUserInfo', JSON.stringify(res))
+        if (res && res.success && res.result) {
+          localStorage.setItem('wxUserInfo', JSON.stringify(res.result))
+        }
         let redirectUrl = sessionStorage.getItem('wxRedirectUrl')
         this.$router.replace(redirectUrl)
       } else {

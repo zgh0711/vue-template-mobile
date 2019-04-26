@@ -8,6 +8,12 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    //页面加载出来后将页面滚动到顶部，避免微信缓存了前面列表页的滚动位置导致进入详情页后自动滚动到底部的问题
+    if (to.name === 'xxxxxx') {
+      return {x: 0, y: 0}
+    }
+  },
   routes: [
     {
       path: '/',
@@ -57,10 +63,8 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from) => {
-  if (to.name !== 'WxAuth') {
-    //微信分享前初始化 wxConfig
-    wxShare.initConfig(location.origin + '/dc' + to.fullPath)
-  }
+  //微信分享前初始化 wxConfig
+  wxShare.initConfig(location.origin + '/dc' + to.fullPath)
 })
 
 export default router
