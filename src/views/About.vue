@@ -2,7 +2,9 @@
   <div class="about">
     <h1>This is an about page</h1>
   
-    <van-button @click="click" type="default">默认按钮</van-button>
+    <Debounce :time="300" events="click">
+      <van-button @click="testDebounce" type="default">默认按钮</van-button>
+    </Debounce>
     <van-button type="primary">主要按钮</van-button>
     <van-button type="info">信息按钮</van-button>
     <van-button type="warning">警告按钮</van-button>
@@ -17,8 +19,8 @@
       this.wxShare.share()
     },
     methods: {
-      click () {
-        alert(111111111111)
+      testDebounce () {
+        console.log(new Date())
       },
     },
   

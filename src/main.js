@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import apis from './apis'
+import './utils/debounce'
 import './utils/directive'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
@@ -21,8 +22,8 @@ Vue.use(PullRefresh)
    .use(Toast)
    .use(List)
    .use(Lazyload,{
-      error: require('./assets/img/img_placeholder.svg'),
-      loading: require('./assets/img/img_placeholder.svg'),
+      // error: require('./assets/img/img_placeholder.svg'),
+      // loading: require('./assets/img/img_placeholder.svg'),
    })
 
 new Vue({
