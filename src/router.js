@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import wxShare from './utils/wxShare'
 
 Vue.use(Router)
@@ -9,28 +8,26 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   scrollBehavior(to, from, savedPosition) {
-    //页面加载出来后将页面滚动到顶部，避免微信缓存了前面列表页的滚动位置导致进入详情页后自动滚动到底部的问题
-    if (to.name === 'xxxxxx') {
-      return {x: 0, y: 0}
+    if (savedPosition) { //如果savedPosition存在，滚动条会自动跳到记录的值的地方
+      return savedPosition
+    } else {
+      return {x: 0, y: 0}//savedPosition也是一个记录x轴和y轴位置的对象
     }
   },
   routes: [
     // 如果URL输入错误或者是URL 匹配不到任何静态资源，就自动跳到到Home页面,也可以指向一个专门的 404 页面
     {path: "*", redirect: "/"},
+    {path: '/WxAuth', name: 'WxAuth', component: () => import('./views/WxAuth.vue'),},
+  
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: () => import('./views/Home.vue'),
     },
     {
       path: '/about/:id',
       name: 'about',
       component: () => import('./views/About.vue'),
-    },
-    {
-      path: '/WxAuth',
-      name: 'WxAuth',
-      component: () => import('./views/WxAuth.vue'),
     },
   ],
 })
