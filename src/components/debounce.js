@@ -8,7 +8,7 @@
  */
 
 
-import Vue from 'vue'
+import Vue from 'vue/types'
 
 const debounce = (func, time, ctx) => {
   let timer
