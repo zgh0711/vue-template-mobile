@@ -140,6 +140,15 @@ img{
   -webkit-box-orient: vertical;
 }
 
+/*适配 iPhoneX 底部小黑条，详见 https://aotu.io/notes/2017/11/27/iphonex/ */
+.iphoneX{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: constant(safe-area-inset-bottom);
+  height: env(safe-area-inset-bottom);
+  background-color: #fff;
+}
 
 /*覆盖 vant 里面的默认样式*/
 .van-list__finished-text{
