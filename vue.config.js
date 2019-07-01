@@ -5,5 +5,10 @@ module.exports = {
     : '/',
   
   productionSourceMap: false,
+  
+  //移除 prefetch 插件
+  chainWebpack: config =>{
+    config.plugins.delete('prefetch')
+  }
 
 }
