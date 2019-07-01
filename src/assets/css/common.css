@@ -140,7 +140,12 @@ img{
   -webkit-box-orient: vertical;
 }
 
-/*适配 iPhoneX 底部小黑条，详见 https://aotu.io/notes/2017/11/27/iphonex/ */
+/*
+  适配 iPhoneX 底部小黑条，详见 https://aotu.io/notes/2017/11/27/iphonex/
+  在要适配 iPhoneX 的页面底部加入一个下列 class 的 div，并给需要做适配的元素添加以下样式
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
+*/
 .iphoneX{
   position: fixed;
   bottom: 0;
