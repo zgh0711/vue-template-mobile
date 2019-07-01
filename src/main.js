@@ -1,16 +1,14 @@
-import './assets/css/core.min.css'
 import './assets/css/common.css'
 
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
 import apis from './apis'
-import './components/debounce'
-import './utils/directive'
+import store from './store'
+import router from './router'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
 import {PullRefresh, Lazyload, Button, Toast, List} from 'vant'
+import './utils/directive'
 
 Vue.config.productionTip = false
 Vue.prototype.apis = apis
