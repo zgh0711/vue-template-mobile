@@ -16,12 +16,17 @@ const router = new Router({
   },
   routes: [
     // 如果URL输入错误或者是URL 匹配不到任何静态资源，就自动跳到到Home页面,也可以指向一个专门的 404 页面
-    {path: "*", redirect: "/"},
+    {path: "*", redirect: "/home"},
     {path: '/WxAuth', name: 'WxAuth', component: () => import('./views/WxAuth.vue'),},
   
     {
-      path: '/',
+      path: '/home',
       name: 'home',
+      component: () => import('./views/Home.vue'),
+    },
+    {
+      path: '/mine',
+      name: 'mine',
       component: () => import('./views/Home.vue'),
     },
   ],

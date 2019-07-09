@@ -4,7 +4,7 @@
       <div class="text">首页</div>
     </router-link>
     
-    <router-link to="/agreement" class="f1 nav mine" tag="div" active-class="mine-active">
+    <router-link to="/mine" class="f1 nav mine" tag="div" active-class="mine-active">
       <div class="text">我的</div>
     </router-link>
   </div>

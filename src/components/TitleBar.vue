@@ -33,10 +33,9 @@
         <div slot="left2" @click="$router.go(-1)">left2</div>
      </TitleBar>
    *
-   * TitleBar 这种组件基本每个页面都需要用到，所以需要全局注册，在 main.js 中通过三步来进行全局注册
+   * TitleBar 这种组件基本每个页面都需要用到，所以需要全局注册，在 main.js 中通过二步来进行全局注册
    * 1，import 组件，如：import TitleBar from '@/components/TitleBar'
-   * 2，Vue.use 使用组件，如：Vue.use(TitleBar)
-   * 3，Vue.component 初始化组件 如：Vue.component('TitleBar', TitleBar)
+   * 2，Vue.component 初始化组件 如：Vue.component('TitleBar', TitleBar)
    */
   export default {
     name: 'TitleBar',
