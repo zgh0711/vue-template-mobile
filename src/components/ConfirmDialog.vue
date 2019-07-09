@@ -8,7 +8,7 @@
         <p class="msg van-hairline--bottom" v-if="confirmDialog.msg">{{confirmDialog.msg}}</p>
         <div class="flex">
           <button @click="confirmDialog.cancelAction" class="f1 btn-cancel">{{confirmDialog.cancelText}}</button>
-          <button @click="confirmDialog.confirmAction" class="f1 btn-confirm van-hairline--left">{{confirmDialog.confirmText}}</button>
+          <button @click="confirmDialog.confirmAction" class="f1 btn-confirm">{{confirmDialog.confirmText}}</button>
         </div>
       </div>
     </div>
@@ -49,6 +49,10 @@
       },
     },
   
+    mounted () {
+      this.myUtils.forbidBodyScroll()
+    },
+    
     methods: {
       closeMask () {
         this.confirmDialog.show = false
@@ -64,44 +68,44 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 9;
       width: 100%;
       height: 100%;
+      z-index: 9;
       opacity: .6;
       background: #000;
     }
     
     .dialogCon{
-      top: 4rem;
+      top: 30%;
       width: 80%;
-      z-index: 10;
       margin: 0 10%;
-      border-radius: .08rem;
-      background: white;
+      z-index: 10;
       position: fixed;
+      background: white;
+      border-radius: 8px;
       h5{
-        height: .6rem;
-        line-height: .6rem;
-        font-size: .4rem;
+        height: 60px;
+        line-height: 60px;
+        font-size: 40px;
         font-weight: bold;
         text-align: center;
       }
       .msg{
-        height: 1.6rem;
-        line-height: 1.6rem;
+        height: 160px;
+        line-height: 160px;
         color: #666666;
-        font-size: .32rem;
+        font-size: 32px;
         text-align: center;
       }
       .btn-cancel{
-        height: 1rem;
+        height: 100px;
         color: #666666;
-        font-size: .32rem;
+        font-size: 32px;
       }
       .btn-confirm{
-        height: 1rem;
+        height: 100px;
         color: #1EAB42;
-        font-size: .32rem;
+        font-size: 32px;
       }
     }
   }

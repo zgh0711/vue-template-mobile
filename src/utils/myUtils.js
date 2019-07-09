@@ -199,8 +199,8 @@ export default class myUtils {
   /**
    * 弹出 toast，传入vue 对象和 msg
    */
-  static showToast (vue, msg, duration = 2000) {
-    vue.Toast({message: msg, position: 'bottom', duration: duration})
+  static showToast (vue, msg, position = 'middle', duration = 3000) {
+    vue.$toast({message: msg, position: position, duration: duration})
   }
   
   /**
