@@ -2,11 +2,16 @@
   <div id="app" class="flex-col con-app">
     <!--缓存想要缓存的页面，实现后退不刷新-->
     <!--加上v-if的判断，可以自定义想要缓存的组件，自定义在router里面-->
-    <keep-alive>
-      <router-view class = "f1" v-if = "$route.meta.keepAlive"></router-view>
-    </keep-alive>
-    <router-view class = "f1" v-if = "!$route.meta.keepAlive"></router-view>
-    
+    <transition name="van-fade">
+      <keep-alive>
+        <router-view class = "f1" v-if = "$route.meta.keepAlive"></router-view>
+      </keep-alive>
+    </transition>
+
+    <transition name="van-fade">
+      <router-view class = "f1" v-if = "!$route.meta.keepAlive"></router-view>
+    </transition>
+
     <div class="iphoneX"></div>
     <AppNavBar class="bar-nav-app"></AppNavBar>
   </div>
