@@ -17,7 +17,6 @@
       if (this.$route.query.code) {
         let res = await this.apis.public.getWxUserInfo({
           code: this.$route.query.code,
-          platform: 1,
         })
         if (res && res.success && res.result) {
           localStorage.setItem('wxUserInfo', JSON.stringify(res.result))
