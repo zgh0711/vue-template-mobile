@@ -1,24 +1,27 @@
 import './assets/css/common.css'
+import './utils/directive'
 
 import Vue from 'vue'
 import App from './App.vue'
-import apis from './apis'
 import store from './store'
 import router from './router'
+import apis from './apis'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
-import {PullRefresh, Lazyload, Button, Toast, List} from 'vant'
-import './utils/directive'
+import {Lazyload, Toast, List, Swipe, SwipeItem} from 'vant'
 
 Vue.config.productionTip = false
 Vue.prototype.apis = apis
 Vue.prototype.wxShare = wxShare
 Vue.prototype.myUtils = myUtils
 
-Vue.use(PullRefresh)
-   .use(Button)
+//使用 Vue.use 和 Vue.component 全局注册组件，这里的第一个参数就是后面可以在其他组件内使用的标签名，并使用动态导入来延迟加载组件
+Vue.component('titleBar', () => import ('./components/TitleBar'))
+
+Vue.use(List)
    .use(Toast)
-   .use(List)
+   .use(Swipe)
+   .use(SwipeItem)
    .use(Lazyload,{
       // error: require('./assets/img/img_placeholder.svg'),
       // loading: require('./assets/img/img_placeholder.svg'),

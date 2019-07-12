@@ -85,6 +85,10 @@ p, h1, h2, h3, h4, h5, h6 {
   -webkit-padding-after: 0;
 }
 
+div, p{
+  box-sizing: border-box;
+}
+
 /*避免 div 中 img 标签底部会多出一点的留白的问题*/
 img{
   vertical-align:top;
