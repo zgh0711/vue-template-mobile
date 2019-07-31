@@ -19,7 +19,7 @@ export default {
     }
     
     // 将 url 传给后台请求微信签名配置
-    apiHelper.purePost('后端的请求地址，需要更换', {url: url}).then(res => {
+    apiHelper.post('后端的请求地址，需要更换', {url: url}).then(res => {
       // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，
       if (res && res.success && res.result) {
         wx.config({

@@ -1,10 +1,8 @@
 import axios from 'axios/index'
 
-//vue 实例
-let vue = undefined
-//是否允许显示toast和loading
-let showToast = false
-let showLoading = false
+
+let vue = undefined //vue 实例
+let showLoading = false //是否允许显示toast和loading
 
 let BASE_URL = 'https://m1.xxxxxx.com/api'
 //判断是否为正式环境
@@ -63,12 +61,12 @@ axios.interceptors.response.use(response => {
 
 export default {
   //获取 vue 实例，在应用入口 App.vue 的 created 生命周期中调用一下就行
-  getVueInstance (object) {
+  setVueInstance (object) {
     vue = object
   },
   
   //不带 loading 的 get 请求
-  pureGet (url) {
+  get (url) {
     showLoading = false
     
     return axios({
@@ -79,7 +77,7 @@ export default {
   },
   
   //不带 loading 的 post 请求
-  purePost (url, params) {
+  post (url, params) {
     showLoading = false
     
     return axios({
@@ -91,11 +89,8 @@ export default {
   },
   
   //带 loading 的 get 请求
-  get (url, isShowLoading) {
+  getWithLoading (url) {
     showLoading = true
-    if (isShowLoading === false) {
-      showToast = isShowLoading
-    }
     
     return axios({
       method: 'get',
@@ -105,11 +100,8 @@ export default {
   },
   
   //带 loading 的 post 请求
-  post (url, params, isShowLoading) {
+  postWithLoading (url, params) {
     showLoading = true
-    if (isShowLoading === false) {
-      showToast = isShowLoading
-    }
     
     return axios({
       method: 'post',
