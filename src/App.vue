@@ -12,8 +12,8 @@
       <router-view class = "f1" v-if = "!$route.meta.keepAlive"></router-view>
     </transition>
 
-    <div class="iphoneX"></div>
-    <AppNavBar class="bar-nav-app"></AppNavBar>
+    <div v-show="showAppBar" class="iphoneX"></div>
+    <AppNavBar v-show="showAppBar" class="bar-nav-app"></AppNavBar>
   </div>
 </template>
 
@@ -23,10 +23,16 @@
   export default {
     name: 'App',
     components: {AppNavBar},
+    computed: {
+      showAppBar () {
+        let showList = ['home','mine']
+        return showList.includes(this.$route.name)
+      },
+    },
     
     created () {
       //将 vue 实例传递给 axios，在拦截器里面可能会用到
-      this.apis.public.getVueObject(this)
+      this.apis.public.setVueObject(this)
     }
   }
 </script>
