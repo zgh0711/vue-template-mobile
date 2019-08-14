@@ -16,10 +16,11 @@
     "weixin-js-sdk": "^1.4.0-test"
   },
   "devDependencies": {
-    "archiver": "^3.0.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
+    "archiver": "^3.0.0",
     "babel-plugin-import": "^1.12.0",
+    "compression-webpack-plugin": "^3.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "postcss-px-to-viewport": "^1.1.0",
