@@ -1,4 +1,5 @@
 const CompressionPlugin = require("compression-webpack-plugin")
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = {
   //访问服务器上目录的地址，在程序部署之前根据需要换掉
@@ -21,6 +22,13 @@ module.exports = {
             threshold: 10240,//对超过10k的数据压缩
             deleteOriginalAssets: false, //不删除源文件
           }),
+          //图片质量压缩插件，自动对图片进行压缩
+          new ImageminPlugin({
+            pngquant: {
+              quality: '80-95',
+              progressive:true
+            }
+          })
         ],
       }
     }
