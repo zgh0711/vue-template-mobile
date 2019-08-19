@@ -85,6 +85,10 @@ function handleType (oldVersion, type) {
 }
 
 
+let pkgDir = './packages';
+if (!fs.existsSync(pkgDir)){
+  fs.mkdirSync(pkgDir);
+}
 //在 packages 目录下生成压缩包
 let output = fs.createWriteStream(`./packages/${appName}_${packageJSON.version}.zip`)
 let archive = archiver('zip', {
