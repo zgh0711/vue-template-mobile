@@ -5,6 +5,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
+
 import apis from './apis'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
@@ -12,6 +13,7 @@ import {Lazyload, Toast, List, Swipe, SwipeItem} from 'vant'
 
 Vue.config.productionTip = false
 Vue.prototype.apis = apis
+Vue.prototype.toast = Toast
 Vue.prototype.wxShare = wxShare
 Vue.prototype.myUtils = myUtils
 
