@@ -11,8 +11,11 @@
     <transition name="van-fade">
       <router-view class = "f1" v-if = "!$route.meta.keepAlive"></router-view>
     </transition>
+  
+    <div class="iphoneX"></div>
 
-    <div v-show="showAppBar" class="iphoneX"></div>
+    <!--底部导航的占位高度-->
+    <div v-show="showAppBar" class="placeholder-bar-nav-app"></div>
     <AppNavBar v-show="showAppBar" class="bar-nav-app"></AppNavBar>
   </div>
 </template>
@@ -43,9 +46,13 @@
     .bar-nav-app{
       width: 100%;
       bottom: 0;
+      z-index: 1000;
       position: fixed;
       margin-bottom: constant(safe-area-inset-bottom);
       margin-bottom: env(safe-area-inset-bottom);
+    }
+    .placeholder-bar-nav-app{
+      height: 96px;
     }
   }
 </style>
