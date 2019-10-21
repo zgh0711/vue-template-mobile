@@ -1,5 +1,5 @@
 <template>
-  <header class="con-bar-title flex" :class="{'fixed': fixed}">
+  <header class="con-bar-title flex-row" :class="{'fixed': fixed}">
     <div class="left" v-if="goBack" @click="$router.go(-1)">返回</div>
     <div class="left" v-if="!goBack || left1 || right1">
       <slot name="left"></slot>

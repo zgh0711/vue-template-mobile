@@ -1,5 +1,5 @@
 <template>
-  <div class="con-bar-nav-app flex">
+  <div class="con-bar-nav-app flex-row">
     <router-link to="/home" class="f1 nav home" tag="div" active-class="home-active">
       <div class="text">首页</div>
     </router-link>

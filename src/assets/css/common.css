@@ -94,7 +94,7 @@ img{
   vertical-align:top;
 }
 
-.flex {
+.flex-row {
   display: flex;
 }
 
@@ -164,4 +164,15 @@ img{
 .van-list__finished-text{
   color: transparent;
   line-height: 0;
+}
+
+/*横向滚动*/
+.scroll-x{
+  display: flex;
+  overflow-x: auto;
+  flex-flow:row nowrap;
+}
+/*去除滚动条*/
+::-webkit-scrollbar {
+  display: none;
 }

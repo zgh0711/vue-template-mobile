@@ -6,7 +6,7 @@
       <div class="dialogCon">
         <h5 v-if="confirmDialog.title">title</h5>
         <p class="msg van-hairline--bottom" v-if="confirmDialog.msg">{{confirmDialog.msg}}</p>
-        <div class="flex">
+        <div class="flex-row">
           <button @click="confirmDialog.cancelAction" class="f1 btn-cancel">{{confirmDialog.cancelText}}</button>
           <button @click="confirmDialog.confirmAction" class="f1 btn-confirm">{{confirmDialog.confirmText}}</button>
         </div>
