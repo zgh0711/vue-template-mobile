@@ -169,8 +169,9 @@ img{
 /*横向滚动*/
 .scroll-x{
   display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto;
-  flex-flow:row nowrap;
+  white-space: nowrap;
 }
 /*去除滚动条*/
 ::-webkit-scrollbar {
