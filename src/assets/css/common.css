@@ -1,7 +1,7 @@
 html {
   /* rem 适配计算方式，10 *100 / 750 */
   font-size: 13.3333vw;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
