@@ -151,13 +151,17 @@ img{
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
 */
-.iphoneX{
-  position: fixed;
-  bottom: 0;
+.iphoneX-adapt{
   width: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: #ECECEC;
   height: constant(safe-area-inset-bottom);
   height: env(safe-area-inset-bottom);
-  background-color: #fff;
+}
+.iphoneX{
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
 }
 
 /*覆盖 vant 里面的默认样式*/
