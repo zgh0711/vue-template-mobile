@@ -16,58 +16,47 @@
    */
   export default {
     name: 'AppNavBar',
-    data () {
-      return {}
-    },
-    
-    mounted () {
-    
-    },
   }
 </script>
 
 <style lang="less" scoped>
   .con-bar-nav-app {
     height: 96px;
-    background: #1FA2FF;
-    text-align: center;
-    line-height: 96px;
+    background: white;
     .nav{
       position: relative;
-      font-size: 24px;
+      font-size: 22px;
       text-align: center;
-      text-decoration: none;
       .text{
         left: 0;
-        bottom: 6.4px;
+        bottom: 0;
         width: 100%;
-        height: 40px;
+        height: 38px;
         position: absolute;
-        text-align: center;
-        line-height: 40px;
+        line-height: 38px;
       }
     }
     
     .home{
-      color: #666666;
+      color: #262626;
       background: url("../assets/img/logo.png") no-repeat center top 10px;
-      background-size: 40px;
+      background-size: 48px;
     }
     .mine {
-      color: #666666;
+      color: #262626;
       background: url("../assets/img/logo.png") no-repeat center top 10px;
-      background-size: 40px;
+      background-size: 48px;
     }
     .home-active {
-      color: #FFFFFF;
+      color: #4398FF;
       background: url("../assets/img/logo.png") no-repeat center top 10px;
-      background-size: 40px;
+      background-size: 48px;
     }
   
     .mine-active {
-      color: #FFFFFF;
+      color: #4398FF;
       background: url("../assets/img/logo.png") no-repeat center top 10px;
-      background-size: 40px;
+      background-size: 48px;
     }
   }
 </style>
