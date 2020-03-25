@@ -9,9 +9,14 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #ECECEC;
+  background: #F4F5F9;
   box-sizing: border-box;
   -webkit-text-size-adjust: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -46,30 +51,19 @@ button {
   padding: 0;
 }
 
-input, select {
-  border: none;
-  outline: none;
-  line-height: normal;
+input, select, textarea {
+  all: unset;
+  box-sizing: border-box;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: #A5A5A5;
 }
-
-input:-moz-placeholder, textarea:-moz-placeholder {
-  color: #A5A5A5;
-}
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #A5A5A5;
-}
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #A5A5A5;
-}
+::placeholder{color: #A5A5A5;}
 
 /*去除点击时的背景效果*/
-div, a, img {
+a, img {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -79,19 +73,16 @@ div, a, img {
 }
 
 p, h1, h2, h3, h4, h5, h6 {
+  word-break: break-all;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   -webkit-padding-before: 0;
   -webkit-padding-after: 0;
 }
 
-div, p{
-  box-sizing: border-box;
-}
-
 /*避免 div 中 img 标签底部会多出一点的留白的问题*/
-img{
-  vertical-align:top;
+img {
+  vertical-align: top;
 }
 
 .flex-row {
@@ -131,6 +122,19 @@ img{
   flex: 7;
 }
 
+
+.t-l {
+  text-align: left;
+}
+
+.t-c {
+  text-align: center;
+}
+
+.t-r {
+  text-align: right;
+}
+
 .oneLine {
   overflow: hidden;
   white-space: nowrap;
@@ -145,39 +149,50 @@ img{
   -webkit-box-orient: vertical;
 }
 
-/*
-  适配 iPhoneX 底部小黑条，详见 https://aotu.io/notes/2017/11/27/iphonex/
-  在要适配 iPhoneX 的页面底部加入一个下列 class 的 div，并给需要做适配的元素添加以下样式
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
-*/
-.iphoneX-adapt{
-  width: 100%;
-  bottom: 0;
-  position: fixed;
-  background-color: #ECECEC;
-  height: constant(safe-area-inset-bottom);
-  height: env(safe-area-inset-bottom);
-}
-.iphoneX{
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
-}
-
-/*覆盖 vant 里面的默认样式*/
-.van-list__finished-text{
-  color: transparent;
-  line-height: 0;
+.threeLine {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3; /*要显示的行数*/
+  -webkit-box-orient: vertical;
 }
 
 /*横向滚动*/
-.scroll-x{
+.scroll-x {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   white-space: nowrap;
 }
+
 /*去除滚动条*/
 ::-webkit-scrollbar {
   display: none;
 }
+
+
+/*
+  适配 iPhoneX 底部小黑条，在要适配 iPhoneX 的页面底部加入一个下列 class 的 div，
+  并给需要做适配的元素添加以下样式
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
+*/
+.iphoneX-adapt {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: #FFFFFF;
+  height: constant(safe-area-inset-bottom);
+  height: env(safe-area-inset-bottom);
+}
+
+.iphoneX {
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+
+[class*=border]::after {
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #E9EDF1;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+}
+
+.border,
+.border-t,
+.border-b,
+.border-l,
+.border-r,
+.border-t-b,
+.border-l-r,
+.border-all {
+  position: relative;
+}
+
+.border-t::after {
+  border-top-width: 1px;
+}
+.border-b::after {
+  border-bottom-width: 1px;
+}
+.border-l::after {
+  border-left-width: 1px;
+}
+.border-r::after {
+  border-right-width: 1px;
+}
+.border-t-b::after {
+  border-width: 1px 0;
+}
+.border-l-r::after {
+  border-width: 0 1px;
+}
+.border-all::after {
+  border-width: 1px;
+}
