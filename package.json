@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && node build.js --type=revision"
+    "build": "vue-cli-service build && node build.js --type=revision",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -18,10 +19,16 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^4.2.3",
     "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
     "archiver": "^3.0.0",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-import": "^1.12.0",
     "compression-webpack-plugin": "^3.0.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-vue": "^6.1.2",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "postcss-px-to-viewport": "^1.1.0",

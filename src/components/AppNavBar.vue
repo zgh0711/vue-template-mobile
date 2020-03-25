@@ -3,7 +3,7 @@
     <router-link to="/home" class="f1 nav home" tag="div" active-class="home-active">
       <div class="text">首页</div>
     </router-link>
-    
+
     <router-link to="/mine" class="f1 nav mine" tag="div" active-class="mine-active">
       <div class="text">我的</div>
     </router-link>
@@ -11,12 +11,13 @@
 </template>
 
 <script>
-  /**
+
+/**
    * AppNavBar组件
    */
-  export default {
-    name: 'AppNavBar',
-  }
+export default {
+  name: 'AppNavBar'
+}
 </script>
 
 <style lang="less" scoped>
@@ -36,7 +37,7 @@
         line-height: 38px;
       }
     }
-    
+
     .home{
       color: #262626;
       background: url("../assets/img/logo.png") no-repeat center top 10px;
@@ -52,7 +53,7 @@
       background: url("../assets/img/logo.png") no-repeat center top 10px;
       background-size: 48px;
     }
-  
+
     .mine-active {
       color: #4398FF;
       background: url("../assets/img/logo.png") no-repeat center top 10px;

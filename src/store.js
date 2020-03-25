@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    theFirstLink: '',
+    theFirstLink: ''
   },
   mutations: {
-    setTheFirstLink (state, url) {
+    setTheFirstLink(state, url) {
       state.theFirstLink = url
-    },
+    }
   },
-  actions: {},
+  actions: {}
 })

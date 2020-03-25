@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    
+
     <van-swipe :autoplay="3000" indicator-color="black" style="background: #1FA2FF;text-align: center">
       <van-swipe-item @click="clickItem(1)">
         <img alt="Vue logo" src="../assets/img/logo.png">
@@ -16,17 +16,17 @@
 </template>
 
 <script>
-  
-  export default {
-    name: 'home',
-    async mounted () {
-      this.wxShare.share()
-    },
-    methods: {
-      clickItem(num){
-        this.$toast(num)
-      }
-    },
-    
+
+export default {
+  name: 'Home',
+  async mounted() {
+    this.wxShare.share()
+  },
+  methods: {
+    clickItem(num) {
+      this.$toast(num)
+    }
   }
+
+}
 </script>

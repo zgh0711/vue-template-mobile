@@ -1,18 +1,19 @@
 <template>
   <div class="con-dialog-base">
     <div class="dialog">
-      <slot name="dialog"></slot>
+      <slot name="dialog" />
     </div>
   </div>
 </template>
 
 <script>
-  /**
+
+/**
    * BaseDialog组件，可以这dialog永远居中
    */
-  export default {
-    name: 'BaseDialog',
-  }
+export default {
+  name: 'BaseDialog'
+}
 </script>
 
 <style lang="less" scoped>
@@ -28,14 +29,14 @@
     white-space: nowrap;
     background-color: rgba(0,0,0,.5);
   }
-  
+
   .con-dialog-base:after {
     height: 100%;
     content: '';
     display: inline-block;
     vertical-align: middle;
   }
-  
+
   .dialog {
     display: inline-block;
     white-space: normal;

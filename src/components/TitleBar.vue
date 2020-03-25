@@ -1,22 +1,24 @@
 <template>
-  <header class="con-bar-title flex-row" :class="{'fixed': fixed}">
-    <div class="left" v-if="goBack" @click="$router.go(-1)">返回</div>
-    <div class="left" v-if="!goBack || left1 || right1">
+  <header class="con-bar-title flex-row van-hairline--bottom" :class="{'fixed': fixed}">
+    <div class="left" v-if="goBack" @click="$router.go(-1)">
+      <img src="../assets/svg/ic_nav_back.svg" alt="">
+    </div>
+    <div class="left" v-if="!goBack || left1">
       <slot name="left"></slot>
     </div>
     <div class="left" v-if="left2 || right2">
       <slot name="left2"></slot>
     </div>
-    
+
     <h1 class="f1 center oneLine" v-if="title" v-text="title"></h1>
     <div class="f1 center oneLine" v-else>
       <slot name="center"></slot>
     </div>
-  
+
     <div class="right" v-if="left2 || right2">
       <slot name="right2"></slot>
     </div>
-    <div class="right" v-if="goBack || !goBack || left1 || right1">
+    <div class="right" v-if="left1 || right1">
       <slot name="right"></slot>
     </div>
   </header>
@@ -59,27 +61,35 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
     position: fixed;
   }
   .con-bar-title {
-    color: white;
+    color: #000000;
     height: 96px;
     line-height: 96px;
     text-align: center;
-    background: #1FA2FF;
+    background: #FFFFFF;
     .left{
       width: 96px;
-      font-size: 28px;
+      display: flex;
+      font-size: 30px;
+      img{
+        width: 48px;
+        height: 48px;
+        margin: auto;
+      }
     }
     .right{
       width: 96px;
-      font-size: 28px;
+      font-size: 30px;
     }
     .center{
       padding: 0 20px;
-      font-size: 40px;
+      font-size: 32px;
+      font-weight: 500;
     }
   }
-  
+
 
 </style>

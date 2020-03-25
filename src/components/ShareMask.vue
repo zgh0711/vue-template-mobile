@@ -1,7 +1,7 @@
 <template>
   <transition name="van-fade">
     <div class="shareMask" @click="closeMask" v-if="shareMask.show">
-      <div class="mask"></div>
+      <div class="mask" />
       <img class="shareArrow" src="../assets/img/img_share_arrow.png" alt="">
       <p>点击右上角分享</p>
     </div>
@@ -9,37 +9,38 @@
 </template>
 
 <script>
-  /**
+
+/**
    * 分享蒙层组件，只需要传入一个 shareMask 对象即可
    * shareMask:{
           show:false
         },
    */
-  export default {
-    name: 'ShareMask',
-    props: {
-      shareMask: {
-        type: Object,
-        require: true,
-      },
-    },
-    watch: {
-      'shareMask.show' () {
-        if (this.shareMask.show) {
-          this.myUtils.forbidBodyScroll()
-        } else {
-          this.myUtils.allowBodyScroll()
-        }
-      },
-    },
-  
-    methods: {
-      closeMask () {
-        this.shareMask.show = false
+export default {
+  name: 'ShareMask',
+  props: {
+    shareMask: {
+      type: Object,
+      require: true
+    }
+  },
+  watch: {
+    'shareMask.show': function () {
+      if (this.shareMask.show) {
+        this.myUtils.forbidBodyScroll()
+      } else {
         this.myUtils.allowBodyScroll()
-      },
-    },
+      }
+    }
+  },
+
+  methods: {
+    closeMask() {
+      this.shareMask.show = false
+      this.myUtils.allowBodyScroll()
+    }
   }
+}
 </script>
 
 <style lang="less" scoped>
@@ -62,7 +63,7 @@
       top: .48rem;
       right: .56rem;
     }
-  
+
     p{
       z-index: 10;
       color: white;

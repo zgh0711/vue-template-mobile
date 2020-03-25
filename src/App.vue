@@ -4,40 +4,40 @@
     <!--加上v-if的判断，可以自定义想要缓存的组件，自定义在router里面-->
     <transition name="van-fade">
       <keep-alive>
-        <router-view class = "f1" v-if = "$route.meta.keepAlive"></router-view>
+        <router-view class="f1" v-if="$route.meta.keepAlive" />
       </keep-alive>
     </transition>
 
     <transition name="van-fade">
-      <router-view class = "f1" v-if = "!$route.meta.keepAlive"></router-view>
+      <router-view class="f1" v-if="!$route.meta.keepAlive" />
     </transition>
-  
-    <div class="iphoneX-adapt"></div>
+
+    <div class="iphoneX-adapt" />
 
     <!--底部导航的占位高度-->
-    <div v-show="showAppBar" class="placeholder-bar-nav-app"></div>
-    <AppNavBar v-show="showAppBar" class="bar-nav-app iphoneX"></AppNavBar>
+    <div v-show="showAppBar" class="placeholder-bar-nav-app" />
+    <AppNavBar v-show="showAppBar" class="bar-nav-app iphoneX" />
   </div>
 </template>
 
 <script>
-  import AppNavBar from '@/components/AppNavBar'
-  
-  export default {
-    name: 'App',
-    components: {AppNavBar},
-    computed: {
-      showAppBar () {
-        let showList = ['home','mine']
-        return showList.includes(this.$route.name)
-      },
-    },
-    
-    created () {
-      //将 vue 实例传递给 axios，在拦截器里面可能会用到
-      this.apis.public.setVueObject(this)
+import AppNavBar from '@/components/AppNavBar'
+
+export default {
+  name: 'App',
+  components: { AppNavBar },
+  computed: {
+    showAppBar() {
+      const showList = ['home', 'mine']
+      return showList.includes(this.$route.name)
     }
+  },
+
+  created() {
+    // 将 vue 实例传递给 axios，在拦截器里面可能会用到
+    this.apis.public.setVueObject(this)
   }
+}
 </script>
 
 <style lang="less" scoped>
