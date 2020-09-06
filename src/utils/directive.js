@@ -3,7 +3,7 @@ import Vue from 'vue'
  * 自定义指令 v-reset-page，以解决 iOS 12 中键盘收起后页面底部有留白的问题
  */
 Vue.directive('resetPage', {
-  inserted (el) {
+  inserted () {
     document.body.addEventListener('focusout', () => {
       if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
         //软键盘收起的事件处理
@@ -20,7 +20,7 @@ Vue.directive('resetPage', {
  * 自定义指令 v-drag，可在页面上随意拖动元素
  */
 Vue.directive("drag", {
-  bind(el, binding, vnode) {
+  bind(el) {
     let fixBar = {};
     el.style.touchAction = 'none';
     el.addEventListener('touchstart', (evt) => {

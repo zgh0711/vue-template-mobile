@@ -4,8 +4,8 @@ import axios from 'axios/index'
 let vue // vue 实例
 let showLoading = false // 是否允许显示toast和loading
 
+//todo 注意修改 BASE_URL
 let BASE_URL = 'https://m1.xxxxxx.com/api'
-
 // 判断是否为正式环境
 if (window.location.origin.indexOf('https://m.xxxxxx.com') !== -1) {
   BASE_URL = 'https://m.xxxxxx.com/api'
@@ -16,6 +16,7 @@ axios.defaults.timeout = 20000
 // 请求开始时，开启加载中动画，出错了提示并关闭动画
 axios.interceptors.request.use(config => {
   // 每次请求之前先判断下是否有 token，有的话则放到 headers 的 TOKEN 里面
+  //todo 此处只是一个示例，根据项目需求来，不要的就删掉
   if (vue) {
     config.headers.common.TOKEN = vue.myUtils.getCookie('token')
   }
@@ -41,6 +42,13 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   if (showLoading) {
     vue.$toast.clear()
+  }
+
+  //todo 这里可以做一些状态码拦截之类的事情，比如
+  //如果 errorCode 为 -4，则表示未登录，跳转到登录页面并带上当前页面的 url
+  if (response.data && response.data.errorCode === -4) {
+    vue.$router.replace(`/login?redirect_url=${vue.$route.fullPath}`)
+    return
   }
 
   // 一切正常，返回数据

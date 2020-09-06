@@ -64,7 +64,7 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-router.afterEach((to, from) => {
+router.afterEach((to) => {
   // 微信分享前初始化 wxConfig
   wxShare.initConfig(`${ location.origin }/dc${ to.fullPath }`)
 })

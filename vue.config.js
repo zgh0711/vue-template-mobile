@@ -13,7 +13,7 @@ module.exports = {
   },
 
   // build 打包时对文件进行 Gzip 压缩
-  configureWebpack: config => {
+  configureWebpack: () => {
     if (process.env.NODE_ENV === 'production') {
       return {
         plugins: [
