@@ -5,8 +5,6 @@ module.exports = {
   //todo 访问服务器上目录的地址，在程序部署之前根据需要换掉
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
 
-  productionSourceMap: false,
-
   // 移除 prefetch 插件
   chainWebpack: config => {
     config.plugins.delete('prefetch')
