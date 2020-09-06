@@ -1,13 +1,13 @@
 import wx from 'weixin-js-sdk'
 import store from '../store'
-import apiHelper from '../apis/apiHelper'
+import request from '../apis/request'
 
 export default {
   initConfig (url) {
     if (!/micromessenger/i.test(navigator.userAgent)) {
       return
     }
-    
+
     //如果是 iOS 设备，则使用第一次进入App时的 URL 去请求 wxConfig，不然的话会导致 iOS 中分享的链接不对
     if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
       //记录第一次进入时的链接，iOS 分享时需要用到
@@ -17,9 +17,9 @@ export default {
         url = store.state.theFirstLink
       }
     }
-    
+
     // 将 url 传给后台请求微信签名配置
-    apiHelper.post('/weixinmp_jssdk_ticket', {url: url}).then(res => {
+    request.post('/weixinmp_jssdk_ticket', {url: url}).then(res => {
       // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，
       if (res) {
         wx.config({
@@ -33,7 +33,7 @@ export default {
       }
     })
   },
-  
+
   share (url, title, desc, imgUrl) {
     if (!/micromessenger/i.test(navigator.userAgent)) {
       return
@@ -55,7 +55,7 @@ export default {
     if (imgUrl) {
       shareImg = imgUrl
     }
-    
+
     wx.ready(() => {
       // 如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行
       // 在 weixin-js-sdk 1.4 之后，分享到朋友和朋友圈要分别使用 updateAppMessageShareData，updateTimelineShareData
