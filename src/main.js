@@ -2,9 +2,6 @@ import './assets/css/common.css'
 import './utils/directive'
 
 import Vue from 'vue'
-import {
-  Lazyload, Toast, List, Swipe, SwipeItem
-} from 'vant'
 import App from './App.vue'
 import store from './store'
 import router from './router'
@@ -13,6 +10,10 @@ import apis from './apis'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
 import filters from './utils/filters'
+
+import {
+  Lazyload, Toast, List, Swipe, SwipeItem
+} from 'vant'
 
 Vue.config.productionTip = false
 Vue.prototype.apis = apis
@@ -35,7 +36,6 @@ Vue.use(List)
   .use(Swipe)
   .use(SwipeItem)
   .use(Lazyload, {
-
     // error: require('./assets/img/img_placeholder.svg'),
     // loading: require('./assets/img/img_placeholder.svg'),
   })

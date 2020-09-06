@@ -35,7 +35,7 @@ export default {
 
   created() {
     // 将 vue 实例传递给 axios，在拦截器里面可能会用到
-    this.apis.public.setVueObject(this)
+    this.apis.public.getVueInstance(this)
   }
 }
 </script>

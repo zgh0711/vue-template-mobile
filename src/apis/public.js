@@ -5,7 +5,7 @@ export default {
   /**
    * 将 vue 对象传递给 apiHelper
    */
-  setVueObject(vue) {
+  getVueInstance(vue) {
     request.setVueInstance(vue)
   },
 

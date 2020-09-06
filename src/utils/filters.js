@@ -1,41 +1,59 @@
 export default {
   /**
-   * 隐藏名字中间字符，传入的 length 表示最后一共保留几位字符
+   * 给图片路径加上 OSS 规则，根据当前设备的 dpr 返回不同后缀的路径
+   * @param imgUrl 图片的原始 URL
+   * @param type 传入字符串，现共有四种类型：avatar，banner，thumb，thumb-md
+   * @returns {string}
    */
-  hideName (name, length) {
-    if (name.length >= 2) {
-      let firstStr = name.charAt(0)
-      let arr = Array(name.length - 1).fill('*')
-      let str = arr.join().replace(/,/g, '')
-      
-      if (length && length < name.length) {
-        str = str.substring(0, length - 1)
-      }
-      return firstStr + str
-    } else {
-      return name
+  oss (imgUrl, type) {
+    if (imgUrl == null || imgUrl.length === 0 || imgUrl === '') {
+      return ''
     }
-  },
-  
-  /**
-   * 格式化价格
-   */
-  currency (value, discount) {
-    if (!value) {
-      value = 0
+
+    //获取设备 dpr，用于oss获取不同分辨率的图片
+    let deviceDpr = 2
+    if (typeof window !== 'undefined') {
+      deviceDpr = window.devicePixelRatio
     }
-    let fixNum = (Number(value) + 1).toFixed(discount)//四舍五入之前加1
-    let fixedNum = Number(fixNum - 1).toFixed(discount)//四舍五入之后减1，再四舍五入一下
-    return '￥' + fixedNum
+
+    //根据设备的 dpr 和图片要显示的位置设置不同的请求参数
+    //todo 具体的图片显示规则需要根据自己项目的 UI 图来做不同的修改，此处只是给出示例
+    switch (type) {
+      case 'banner':
+        if (deviceDpr < 1.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_552,h_192/quality,Q_85'
+        } else if (1.5 <= deviceDpr < 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_690,h_240/quality,Q_90'
+        } else if (deviceDpr >= 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_690,h_240/quality,Q_95'
+        }
+        break
+      case 'thumb':
+        if (deviceDpr < 1.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_192,h_128/quality,q_80'
+        } else if (1.5 <= deviceDpr < 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_240,h_160/quality,q_85'
+        } else if (deviceDpr >= 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_288,h_192/quality,q_90'
+        }
+        break
+      case 'avatar':
+        if (deviceDpr < 1.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_44,h_44/quality,q_80'
+        } else if (1.5 <= deviceDpr < 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_66,h_66/quality,q_85'
+        } else if (deviceDpr >= 2.5) {
+          imgUrl = imgUrl.replace('http:', '') + '?x-oss-process=image/auto-orient,1/resize,m_fill,w_88,h_88/quality,q_90'
+        }
+        break
+      default:
+        imgUrl = imgUrl.replace('http:', '')
+        break
+    }
+
+    return imgUrl
   },
-  
-  /**
-   * 优惠券折扣价格显示
-   */
-  discount (input) {
-    return (parseFloat(input) * 10).toFixed(1)
-  },
-  
+
   /**
    * 格式化时间戳为 2019年12月30日  的格式
    */
@@ -48,7 +66,7 @@ export default {
     let day = d.getDate() < 10 ? '0' + d.getDate() : '' + d.getDate()
     return year + '年' + month + '月' + day + '日'
   },
-  
+
   /**
    * 格式化时间戳为 12.30 09:58 的格式
    */
@@ -62,7 +80,7 @@ export default {
     let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes()
     return month + '.' + day + ' ' + hour + ':' + minutes
   },
-  
+
   /**
    * 格式化时间戳为 2019.12.30 09:58 的格式
    */
@@ -76,30 +94,5 @@ export default {
     let hour = d.getHours() < 10 ? '0' + d.getHours() : d.getHours()
     let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes()
     return year + '.' + month + '.' + day + ' ' + hour + ':' + minutes
-  },
-  
-  /**
-   * 已报名列表中以不同的时间显示报名时的时间
-   */
-  differenceTimeText (timestamp) {
-    let current = new Date().getTime()
-    let difference = parseInt((current - timestamp) / 1000) //精确到秒
-    if (difference < 60) {
-      return difference + '秒前'
-    } else if (difference < 60 * 60) {
-      return parseInt(difference / 60) + '分钟前'
-    } else if (difference < 60 * 60 * 24) {
-      return parseInt(difference / 60 / 60) + '小时前'
-    } else {
-      //超过24小时按天算
-      let differenceDay = parseInt(current / (60 * 60 * 24 * 1000)) - parseInt(timestamp / (60 * 60 * 24 * 1000))
-      if (differenceDay > 2) {
-        return '3天前'
-      } else if (differenceDay > 1) {
-        return '前天'
-      } else {
-        return '昨天'
-      }
-    }
   },
 }

@@ -14,7 +14,6 @@ const router = new Router({
     return { x: 0, y: 0 }// savedPosition也是一个记录x轴和y轴位置的对象
   },
   routes: [
-
     // 如果URL输入错误或者是URL 匹配不到任何静态资源，就自动跳到到Home页面,也可以指向一个专门的 404 页面
     { path: '*', redirect: '/home' },
     { path: '/WxAuth', name: 'WxAuth', component: () => import('./views/WxAuth.vue') },
@@ -50,6 +49,7 @@ router.beforeEach((to, from, next) => {
     sessionStorage.setItem('wxRedirectUrl', to.fullPath)
 
     // 请求微信授权,并跳转到 /WxAuth 路由
+    //todo 注意修改 appId 和应用访问 URL
     let appId = '测试服AppId'
     let redirectUrl = encodeURIComponent('https://m1.xxxxxx.com/WxAuth')
 

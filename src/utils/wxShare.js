@@ -19,7 +19,8 @@ export default {
     }
 
     // 将 url 传给后台请求微信签名配置
-    request.post('/weixinmp_jssdk_ticket', {url: url}).then(res => {
+    // todo 注意修改后台接口地址以及后台返回的数据结构
+    request.post('接口地址', {url: url}).then(res => {
       // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，
       if (res) {
         wx.config({
@@ -39,19 +40,20 @@ export default {
       return
     }
     //默认分享链接，比如说应用首页
-    let shareUrl = location.origin + '/new/'
+    //todo 注意修改默认的分享参数
+    let shareUrl = location.origin + '/'
     if (url) {
       shareUrl = url
     }
-    let shareTitle = '朋来，发现更好的教育'
+    let shareTitle = '默认分享标题'
     if (title) {
       shareTitle = title
     }
-    let shareDesc = '专为教育人打造的活动平台'
+    let shareDesc = '默认分享内容'
     if (desc) {
       shareDesc = desc
     }
-    let shareImg = 'https://img.youpenglai.com/penglai/meetingpic/5f870511-1597-4b72-951f-68e3d62dd53c.jpg'
+    let shareImg = '默认分享图片地址'
     if (imgUrl) {
       shareImg = imgUrl
     }
