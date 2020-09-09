@@ -2,6 +2,7 @@
 node_modules
 /dist
 /packages
+package-lock.json
 
 # local env files
 .env.local

@@ -40,6 +40,12 @@ Vue.use(List)
     // loading: require('./assets/img/img_placeholder.svg'),
   })
 
+// 开发环境下面使用vConsole进行调试
+if (process.env.NODE_ENV !== 'production') {
+  const VConsole = require('vconsole')
+  new VConsole()
+}
+
 new Vue({
   router,
   store,
