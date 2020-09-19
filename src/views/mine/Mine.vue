@@ -30,8 +30,8 @@ export default {
 .mine{
   padding: 30px;
   img{
-    width: 360px;
-    height: 360px;
+    width: 480px;
+    height: 480px;
     margin-top: 30px;
   }
 }
