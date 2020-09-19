@@ -58,4 +58,4 @@ Vue 移动端新项目模板，封装了 H5 项目开发中一些比较常用的
 
 如有需要，可通过下面微信二维码与我联系
 
-![微信图片_20200919231413](C:\Users\ZGH\Desktop\微信图片_20200919231413.jpg)
+![微信图片_20200919231413](https://img-blog.csdnimg.cn/2020091923290113.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnaDA3MTE=,size_16,color_FFFFFF,t_70#pic_center)
