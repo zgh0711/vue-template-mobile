@@ -12,7 +12,7 @@ import myUtils from './utils/myUtils'
 import filters from './utils/filters'
 
 import {
-  Lazyload, Toast, List, Swipe, SwipeItem
+  Lazyload, Toast, List
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -33,8 +33,6 @@ Vue.component('infiniteList', () => import('./components/InfiniteList'))
 
 Vue.use(List)
   .use(Toast)
-  .use(Swipe)
-  .use(SwipeItem)
   .use(Lazyload, {
     // error: require('./assets/img/img_placeholder.svg'),
     // loading: require('./assets/img/img_placeholder.svg'),

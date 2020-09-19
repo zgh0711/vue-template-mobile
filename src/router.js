@@ -21,12 +21,12 @@ const router = new Router({
     {
       path: '/home',
       name: 'home',
-      component: () => import('./views/Home.vue')
+      component: () => import('./views/home/Home.vue')
     },
     {
       path: '/mine',
       name: 'mine',
-      component: () => import('./views/Home.vue')
+      component: () => import('./views/mine/Mine.vue')
     }
   ]
 })
