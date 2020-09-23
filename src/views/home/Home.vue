@@ -35,7 +35,7 @@ export default {
     }
   },
 
-  async mounted() {
+  mounted() {
     this.wxShare.share()
   },
 

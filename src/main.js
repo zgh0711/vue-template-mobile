@@ -7,6 +7,7 @@ import store from './store'
 import router from './router'
 
 import apis from './apis'
+import bus from './utils/eventBus'
 import wxShare from './utils/wxShare'
 import myUtils from './utils/myUtils'
 import filters from './utils/filters'
@@ -16,6 +17,7 @@ import {
 } from 'vant'
 
 Vue.config.productionTip = false
+Vue.prototype.bus = bus
 Vue.prototype.apis = apis
 Vue.prototype.toast = Toast
 Vue.prototype.wxShare = wxShare
