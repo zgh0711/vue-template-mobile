@@ -52,10 +52,3 @@ Vue 移动端新项目模板，封装了 H5 项目开发中一些比较常用的
 以上内容改完，整个项目框架基本就成型了，运行 npm install 安装好各项依赖包之后就可以直接进行业务开发了**
 
 **如果觉得这个项目对你有帮助，烦请点下 star，同时也欢迎大家给我提意见和建议，共同学习和提高，感谢！**
-
-## 我是谁
-85年生人，已经被现实捶打了无数遍的中年社畜。30 岁时通过自学的方式从外贸行业转行进入 IT 编程领域，最初是做 Android 开发，后转入前端领域。以后打算专注于前端领域，正在往资深前端方向努力
-
-如有需要，可通过下面微信二维码与我联系
-
-![微信图片_20200919231413](https://img-blog.csdnimg.cn/2020091923290113.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnaDA3MTE=,size_16,color_FFFFFF,t_70#pic_center)
